@@ -19,6 +19,7 @@ import {
     UserStatsFilteredQuery,
     UserStatsResponse,
 } from "../schemes/users";
+import formatPath from "utils/formatPath";
 
 export default class UserEndpoint extends BaseEndpoint{
     
@@ -89,11 +90,10 @@ export default class UserEndpoint extends BaseEndpoint{
 
     getById(user_id: string, headers?: MattermostHeader){
         return this.request<UserResponse>(
-            ENDPOINT_URL.Users.GET_BY_ID,
+            formatPath(ENDPOINT_URL.Users.GET_BY_ID, { user_id }),
             'GET',
             undefined,
-            headers,
-            { user_id }
+            headers
         )
     }
 
