@@ -1,4 +1,5 @@
 import BaseEndpoint from "./Base";
+import formatPath from "../utils/formatPath";
 import { MattermostHeader } from "../schemes/client";
 import { ENDPOINT_URL } from "../constant";
 import {
@@ -19,7 +20,6 @@ import {
     UserStatsFilteredQuery,
     UserStatsResponse,
 } from "../schemes/users";
-import formatPath from "utils/formatPath";
 
 export default class UserEndpoint extends BaseEndpoint{
     
