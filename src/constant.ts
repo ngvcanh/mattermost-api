@@ -15,6 +15,8 @@ export const ENDPOINT_URL = {
         DELETE: 'users',
         KNOWN: 'users/known',
         STATS: 'users/stats',
-        STATS_FILTERED: 'users/stats/filtered'
+        STATS_FILTERED: 'users/stats/filtered',
+        UPDATE: 'users/{user_id}',
+        DEACTIVE: 'users/{user_id}'
     }
 }

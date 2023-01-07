@@ -19,6 +19,8 @@ import {
     UserSearchRequest,
     UserStatsFilteredQuery,
     UserStatsResponse,
+    UserUpdateRequest,
+    UserUpdateResponse,
 } from "../schemes/users";
 
 export default class UserEndpoint extends BaseEndpoint{
@@ -76,15 +78,6 @@ export default class UserEndpoint extends BaseEndpoint{
             undefined,
             headers,
             query
-        );
-    }
-
-    delete(headers?: MattermostHeader){
-        return this.request(
-            ENDPOINT_URL.Users.DELETE,
-            'DELETE',
-            undefined,
-            headers
         );
     }
 
@@ -171,4 +164,27 @@ export default class UserEndpoint extends BaseEndpoint{
             query
         );
     }
+
+    delete(headers?: MattermostHeader){
+        return this.request(
+            ENDPOINT_URL.Users.DELETE,
+            'DELETE',
+            undefined,
+            headers
+        );
+    }
+
+    deactive(user_id: string, headers?: MattermostHeader){
+        return 
+    }
+
+    update(user_id: string, request: UserUpdateRequest, headers?: MattermostHeader){
+        return this.request<UserUpdateResponse>(
+            formatPath(ENDPOINT_URL.Users.UPDATE, { user_id }),
+            'PUT',
+            request,
+            headers
+        );
+    }
+
 }

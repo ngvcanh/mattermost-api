@@ -157,3 +157,44 @@ export interface UserStatsFilteredQuery{
     channel_roles?: string;
     team_roles?: string;
 }
+
+export interface UserUpdateRequest 
+    extends Omit<UserCreateQuery, 'auth_data' | 'auth_service' | 'password'>{
+        id: string;
+        position?: string;
+        timezone?: UserTimezone;
+        auth_data?: string;
+        auth_service?: string;
+        password?: string;
+    }
+
+export interface UserUpdateResponse 
+    extends Omit<UserResponse,
+        | 'create_at'
+        | 'update_at'
+        | 'delete_at'
+        | 'email_verified'
+        | 'auth_service'
+        | 'roles'
+        | 'last_password_update'
+        | 'last_picture_update'
+        | 'failed_attempts'
+        | 'mfa_active'
+        | 'terms_of_service_id'
+        | 'terms_of_service_create_at'
+    >{
+        position?: string;
+
+        create_at: number;
+        update_at: number;
+        delete_at: number;
+        email_verified: boolean;
+        auth_service: string;
+        roles: string;
+        last_password_update: number;
+        last_picture_update: number;
+        failed_attempts: number;
+        mfa_active: boolean;
+        terms_of_service_id: string;
+        terms_of_service_create_at: number;
+    }

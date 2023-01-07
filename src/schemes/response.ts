@@ -4,3 +4,7 @@ export interface MattermostError{
     message: string;
     request_id: string;
 }
+
+export interface StatusResponse{
+    status: string;
+}
